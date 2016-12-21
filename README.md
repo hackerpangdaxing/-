@@ -1,4 +1,4 @@
-# CloudClass
+# CloudClass--智能云课堂
 javaweb，前后台分离式开发；处女作还望各位大神指教！
 一、	系统环境配置
 开发环境及工具：jdk7+tomcat7+ MyEclipse2015CI +mysql+Appcan（H5开发工具）
