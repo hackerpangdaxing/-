@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+<script type="text/javascript">
+	var currentPosition
+	var speed = 3;
+	var timer_x=1
+	var timer;
+	var send_num=0;
+	var plus = function(){
+		var chat = document.getElementById("chat");//获取id为chat的元素
+		var send = document.getElementById("send");//同上
+		var qipao = document.getElementById("qipao");//同上
+		var qipao1 = qipao.cloneNode(1);//创建你要新建的聊天气泡窗口
+		var temp = send.id+send_num;//修改id用的，因为的你id不能重复
+		send_num++; //每使用一次创建就需要把id背后的数字加一次
+		qipao1.id+=send_num;//给id赋值
+		qipao1.children[1].id = temp;//同上
+		qipao1.children[1].children[0].id+=send_num;//同上
+
+		qipao1.style.display="block";//因为在html里面隐藏了一个聊天气泡的模板 以后修改也是以这个模板为主，现在复制需要显示出来
+		chat.appendChild(qipao1);//在chat里面添加节点
+		if(timer_x){
+			timer_x=0;
+			timer = setInterval("scroll_slow()",10);
+		}//定时器用来滚动滚动条的
+	}
+	var scroll_slow = function(){
+		currentPosition = document.getElementById("ltk").scrollTop;//获取当前聊天窗口的被滚动的位置
+		var setHeight = document.getElementById("chat").children.length *65;
+		var TRUE_SCROLLTOP1 = setHeight- document.getElementById("ltk").offsetHeight + speed;
+			
+		currentPosition+=speed;//currentPosition这里是获取滚动的速度 重复调用然后不断的+=就可以变成慢慢累加然后缓慢滚动的效果
+
+		if(currentPosition != TRUE_SCROLLTOP1){
+			document.getElementById("ltk").scrollTop = currentPosition;//滚动的正式调用
+		}
+		else{
+				timer_x=1;
+				clearInterval(timer); //清理定时器
+		}
+	}
+	var delete111 = function(){
+		document.getElementById("chat").innerHTML = "";
+	}
+</script>
+<style type="text/css">
+body {
+}
+
+.send {
+    position: relative;
+    word-break: break-all;
+    word-wrap: break-word;
+    height: auto;
+    width: 110px;
+    padding-left: 10px;
+    padding-right: 10px;
+    min-height: 20px;
+    padding-top: 7px;
+    padding-bottom: 7px;
+    background: rgba(142, 142, 142, 0.3);
+    border-radius: 5px;
+}
+
+.send .arrow {
+position:absolute;
+top:5px;
+right:-16px; /* 圆角的位置需要细心调试哦 */
+width:0;
+height:0;
+font-size:0;
+border:solid 8px;
+border-color:rgba(142, 142, 142, 0) rgba(142, 142, 142, 0) rgba(142, 142, 142, 0)  rgba(142, 142, 142, 0.3);
+}
+</style>
+</head>
+<body>
+<div id="ltk" style="
+    position: relative;
+    width: 300px;
+    height: 200px;
+    overflow: overlay;
+    "> 
+	<div id="chat">
+		
+	</div>
+</div>
+<input type="button" value="发送对话" onclick="plus()">
+<input type="button" value="delete" onclick="delete111()">
+
+<div id="qipao" style="
+    width: 200px;
+    height: 35px;
+    display: none;
+    margin-top: 15px; 
+    margin-bottom: 15px;
+    margin-right: 30px; 
+    float: right;
+">
+	<img src="1s01246030520Screenshot_2016-10-12-22-16-37.png" style="
+    width: 35px;
+    height: 35px;   
+    float: right;
+    ">
+    <div class="send" id="send" >
+			<span id="word"></span>
+			<div class="arrow"></div>
+  			
+  
+	</div>
+  
+</div>
+</body>
+</html>
+
+
+	

@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>测试专用</title>
+
+<script type="text/javascript" src="js/jquery.min.js"></script>
+<script type="text/javascript">
+	/*    xmlhttp=new XMLHttpRequest();
+	 xmlhttp.onreadystatechange=function()
+	 {
+	 if (xmlhttp.readyState==4 && xmlhttp.status==200)
+	 {
+	 alert(xmlhttp.responseText);
+	 }
+	 }
+	 xmlhttp.open("GET","http://localhost:9497/CloudClass/servlet/ProblemJsonServlet?id=4",true);
+	 xmlhttp.send(); */
+	$(document).ready(
+					function() {
+						var str;
+						//document.getElementById("A").innerHTML="133541"
+						//接收json文件
+
+						$.ajax({
+									type : "get",
+									url : "http://pangdaxing.vicp.io/CloudClass/servlet/ProblemJsonServlet?id=1",
+
+									beforeSend : function() {
+										//alert("即将提交数据！");
+									},
+									success : function(data) {
+										str = '{"title":' + data + "}"
+										var obj = eval("(" + str + ")")
+
+										/*   alert(obj.title[0].id)
+										  alert(obj.title[0].problem)
+										  alert(obj.title[0].sore)
+										  alert(obj.title[0].choose_1)
+										  alert(obj.title[0].choose_2)
+										  alert(obj.title[0].choose_3)
+										  alert(obj.title[0].choose_4)
+										  
+										  alert(obj.title[0].answer) */
+										document.getElementById("id").innerHTML = obj.title[0].id
+										document.getElementById("title").innerHTML = obj.title[0].problem
+										document.getElementById("A").innerHTML = obj.title[0].choose_1
+										document.getElementById("B").innerHTML = obj.title[0].choose_2
+										document.getElementById("C").innerHTML = obj.title[0].choose_3
+										document.getElementById("D").innerHTML = obj.title[0].choose_4
+									},
+									error : function(XMLResponse) {
+										alert("出错信息："
+												+ XMLResponse.responseTest);
+									},
+									complete : function() {
+										alert("提交完成");
+									}
+								});
+					})
+	$("#login").click(function() {
+               if(document.getElementsByName("choose")==obj.title[0].answer){
+                    alert("success")            
+              }else{
+                   alert("false")
+              }
+	});
+</script>
+</head>
+<body>
+	<scan id="id"></scan>
+	<br />
+	<scan id="title"></scan>
+	<br />
+	<input type="radio" id="chooseA"  name="choose"  value="A" />
+	<scan id="A"></scan>
+	<br />
+	<input type="radio" id="chooseB"  name="choose"  value="B"/>
+	<scan id="B"></scan>
+	<br />
+	<input type="radio" id="chooseC" name="choose"  value="C"/>
+	<scan id="C"></scan>
+	<br />
+	<input type="radio" id="choseD"  name="choose"  value = "D"/>
+	<scan id="D"></scan>
+	<br />
+	<input type = "button" id = "up" value="上一题"/>
+	<input type="button" id="next" value="下一题">
+	<div id="result"></div>
+</body>
+</html>

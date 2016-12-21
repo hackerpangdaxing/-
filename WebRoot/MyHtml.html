@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>签到</title>
+	
+    <meta name="keywords" content="keyword1,keyword2,keyword3">
+    <meta name="description" content="this is my page">
+    <meta name="content-type" content="text/html; charset=UTF-8">
+    
+    <!--<link rel="stylesheet" type="text/css" href="./styles.css">-->
+	<script text="script/javascript" >
+		var a = function(){
+			var x = document.getElementById("user").value;
+			var x1="/Cloud/servlet/userOnlineList?username="+x
+			/*var xhr = new XMLHttpRequest();
+			xhr.open("get", x1, true);
+			xhr.send();*/
+			window.location.href =x1
+		
+		}
+	
+	</script>
+  </head>
+  
+  <body style="text-align:center">
+  <h1>签到</h1></br></br>
+    <form action="/Cloud/servlet/userOnlineList"   >
+     
+        <input type="text" name="username" placeholder="用户名"  id="user" /><br></br></br>
+       
+       <input type="button" value="提交" id="login" onclick="a()">
+  
+    </form>
+  </body>
+</html>

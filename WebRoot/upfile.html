@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+    <head>
+
+        <meta charset="utf-8">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>智能云课堂</title>
+
+        <!-- Google Fonts -->
+        <link href='http://fonts.googleapis.com/css?family=Lato' rel='stylesheet'>
+        <link href='http://fonts.googleapis.com/css?family=Orbitron' rel='stylesheet'>
+
+        <!-- CSS -->
+        <link href="css/reset.css" rel="stylesheet">
+        <link href="css/style.css" rel="stylesheet">
+
+        <!-- Javascript -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js"></script>
+        <script src="js/TweenMax.min.js"></script>
+        <script src="js/EasePack.min.js"></script>
+        <script src="js/CSSPlugin.min.js"></script>
+        <script src="js/jquery.countdown.js"></script>
+        <script src="js/js.js"></script>
+
+    </head>
+
+    <body class="direction-right">
+
+        <!-- STARS -->
+	    <div class="stars large"></div>
+	    <div class="stars small"></div>
+        <!-- /STARS -->
+
+        <!-- CONTENT -->
+        <div id="content">
+
+            <!-- LOGO -->
+            <img src="img/logo.png"  style="height:200px;width:280px;" alt="Through The Universe">
+            <!-- /LOGO -->
+
+            <!-- PANEL -->
+            <div id="panel">
+                <!-- UNDER CONSTRUCTION -->
+                <h1>智能云课堂</h1>
+                <!-- /UNDER CONSTRUCTION -->
+
+                <!-- SUBSCRIBE -->
+                <div id="subscribe">
+                    <!-- SUBSCRIPTION HEADER -->
+                    <p>office文件上传转pdf</p>
+                    <!-- /SUBSCRIPTION HEADER -->
+
+                    <!-- SUBSCRIPTION FORM -->
+                    <form id="subscribe-form"  action="/Cloud/servlet/UploadServlet" method="post" enctype="multipart/form-data">
+                      上传者：  <input type="text" id="subscribe-name"  name="username" placeholder="userName"><br>
+                        <input type="file"  name="filename"   id="subscribe-email"  placeholder="file">
+                        <input type="submit" id="subscribe-button"  value="上传">
+                    </form>
+                    <!-- /SUBSCRIPTION FORM -->
+                </div>
+                <!-- /SUBSCRIBE -->
+
+                <!-- DESCRIPTION -->
+                <p id="description">  </p>
+                <!-- /DESCRIPTION -->
+
+                <!-- SOCIAL -->
+                <div id="social">
+                    <a href="#">
+                        <img src="img/social-twitter.png" alt="Twitter">
+                    </a>
+
+                    <a href="#">
+                        <img src="img/social-facebook.png" alt="Facebook">
+                    </a>
+
+                    <a href="#">
+                        <img src="img/social-google.png" alt="Google Plus">
+                    </a>
+                </div>
+                <!-- /SOCIAL -->
+
+                
+            </div>
+
+            <!-- COUNTDOWN -->
+            <div id="countdown">
+                <div>
+                    <div class="days"></div> <!-- number container -->
+                    <div class="countdown-text">days</div>
+                </div>
+
+                <div>
+                    <div class="hours"></div> <!-- number container -->
+                    <div class="countdown-text">hours</div>
+                </div>
+
+                <div>
+                    <div class="minutes"></div> <!-- number container -->
+                    <div class="countdown-text">minutes</div>
+                </div>
+
+                <div>
+                    <div class="seconds"></div> <!-- number container -->
+                    <div class="countdown-text">seconds</div>
+                </div>
+            </div>
+            <!-- /COUNTDOWN -->
+
+        </div>
+        <!-- /CONTENT -->
+
+        <!-- VERTICAL ALIGN HELPER -->
+        <div id="helper"></div>
+        <!-- /HELPER -->
+
+    
+</body>
+</html>
